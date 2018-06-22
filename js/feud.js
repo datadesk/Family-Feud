@@ -23,7 +23,7 @@ $(document).ready(function() {
             console.log(numWrong)
             xAudio.play();
             $(".xContainer").find("img").attr("src", "assets/" + numWrong + "x.png");
-            $(".xContainer").show(0).delay(1200).hide(0);
+            $(".xContainer").show(0).delay(600).hide(0);
         }
 
         // 1-8 = reveal answer
