@@ -1,15 +1,22 @@
 @font-face {
-    font-family: stratum;
-    src: url('../assets/Stratum2-Regular.otf');
+    font-family: clarendon;
+    src: url('../assets/clarenbd.ttf');
 }
 
 body {
 	overflow: hidden;
 	padding: 0px;
 	margin: 0 auto;
-	background-image: url('../assets/bg_wide.png');
-	background-position: center center;
-	background-repeat: no-repeat;
+    background-color: #1669df;
+}
+
+h1 {
+    color: #f2c317;
+    font-size: 80px;
+    font-family: "clarendon", serif;
+    margin: 50px auto 0 auto;
+    width: 1200px;
+    text-align: center;
 }
 
 .xContainer {
@@ -36,7 +43,7 @@ body {
 .answerContainer {
 	width: 950px;
 	height: 520px;
-	margin: 250px auto;
+	margin: 50px auto;
 
 }
 
@@ -64,7 +71,7 @@ body {
 	margin: 0px;
 	width: 65px;
 	height: 40px;
-	background-color: #f2c317; 
+	background-color: #f2c317;
 	margin: 12px 175px;
 	border-radius: 50%;
 	padding: 0px;

@@ -11,14 +11,8 @@ var correctAudio;
 
 $(document).ready(function() {
     console.log(json);
-    open_websocket();
     populateQuestion(currQuestion);
     initAudio();
-
-    $(".xContainer").hide();
-    $("body").click(function(){
-        nextQuestion();
-    });
 
     $("body").bind('keypress', function(e) {
         // spacebar = wrong answer
@@ -26,9 +20,9 @@ $(document).ready(function() {
         if(e.keyCode == 32) {
             numWrong = (numWrong + 1)%4;
             if(numWrong == 0) numWrong = 1;
+            console.log(numWrong)
             xAudio.play();
             $(".xContainer").find("img").attr("src", "assets/" + numWrong + "x.png");
-            $(".xContainer").show(0).delay(1200).hide(0);
         }
 
         // 1-8 = reveal answer
@@ -126,30 +120,30 @@ function displayBuzzerWinner(winner) {
 }
 
 // Websocket API to connect get which buzzer was pressed
-function open_websocket() {
-    var exampleSocket = new WebSocket(/*Insert websocket endpoint*/);
-
-    exampleSocket.onopen = function(event) {
-        console.log("opened websocket");
-    };
-
-    exampleSocket.onerror = function(error) {
-        console.log("error", error);
-    };
-    exampleSocket.onmessage = function(error) {
-      // event.data requires a "button_id" field
-        var t_data = JSON.parse(event.data);
-        console.log(t_data);
-
-        if (t_data.hasOwnProperty("button_id")) {
-            if (t_data["button_id"] == 1)
-                displayBuzzerWinner(1);
-            if (t_data["button_id"] == 2)
-                displayBuzzerWinner(2);
-        }
-    };
-
-    exampleSocket.onclose = function(event) {
-        open_websocket();
-    };
-}
+// function open_websocket() {
+//     var exampleSocket = new WebSocket(/*Insert websocket endpoint*/);
+//
+//     exampleSocket.onopen = function(event) {
+//         console.log("opened websocket");
+//     };
+//
+//     exampleSocket.onerror = function(error) {
+//         console.log("error", error);
+//     };
+//     exampleSocket.onmessage = function(error) {
+//       // event.data requires a "button_id" field
+//         var t_data = JSON.parse(event.data);
+//         console.log(t_data);
+//
+//         if (t_data.hasOwnProperty("button_id")) {
+//             if (t_data["button_id"] == 1)
+//                 displayBuzzerWinner(1);
+//             if (t_data["button_id"] == 2)
+//                 displayBuzzerWinner(2);
+//         }
+//     };
+//
+//     exampleSocket.onclose = function(event) {
+//         open_websocket();
+//     };
+// }
